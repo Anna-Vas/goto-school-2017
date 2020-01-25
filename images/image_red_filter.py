@@ -1,5 +1,6 @@
 from PIL import Image
 
+# Open image and load pixels
 im = Image.open('ironman.jpg')
 im.show()
 
@@ -12,4 +13,5 @@ for i in range(im.width):
         r = min(r + 100, 255)
         pixels[i, j] = (r, g, b)
 
+# Show results
 im.show()
