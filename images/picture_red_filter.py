@@ -5,6 +5,7 @@ im.show()
 
 pixels = im.load()
 
+# Red filter
 for i in range(im.width):
     for j in range(im.height):
         r, g, b = pixels[i, j]
