@@ -12,7 +12,7 @@ There are two programs for image processing in this folder. One of them adds red
 
 ## Faces
 
-This folder contains different versions of a program that replaces faces on a picture with matching emojis using Microsoft Azure service.
+This folder contains different versions of a program that replaces faces on a picture with matching emojis using [Microsoft Azure](https://azure.microsoft.com/ru-ru/services/cognitive-services/face/) service.
 
 ### Requirements
 
