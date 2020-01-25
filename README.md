@@ -17,7 +17,7 @@ This folder contains different versions of a program that replaces faces on a pi
 ### Requirements
 
 - PIL
-- Requests
+- requests
 
 ## Music
 
