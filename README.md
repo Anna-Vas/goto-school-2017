@@ -18,3 +18,12 @@ This folder contains different versions of a program that replaces faces on a pi
 
 - PIL
 - Requests
+
+## Music
+
+This is a sound processing program that makes sound file ten times higher and reverses it.
+
+### Requirements
+
+- wave
+- struct
