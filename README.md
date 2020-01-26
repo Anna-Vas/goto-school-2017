@@ -36,3 +36,15 @@ It was supposed to be a site with some upcoming events (as an example I used thr
 
 - pymongo
 - tornado
+
+## Telegram bot
+
+This is a simple telegram bot that can replace faces on image with emojis (using program from `faces`), execute Python code, send spam messages if user asks to do it and until they send stop command.
+
+### Requirements
+- telebot
+- uuid
+- requests
+- PIL
+- threading
+- time
