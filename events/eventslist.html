@@ -107,29 +107,29 @@
 </head>
 <body>
 {% if not username %}
-<a href="/login" class="btn btn-primary"  style="margin-top: 0px; background: #40c781; position:absolute; right: 220px; border-color: #40c781;">Вход</a>
-<a href="/register" class="btn btn-primary" style="margin-top: 0px; background: #f7a727; position:absolute; right: 100px; border-color: #f7a727;">Регистрация</a>
+<a href="/login" class="btn btn-primary"  style="margin-top: 0px; background: #40c781; position:absolute; right: 220px; border-color: #40c781;">Log in</a>
+<a href="/register" class="btn btn-primary" style="margin-top: 0px; background: #f7a727; position:absolute; right: 100px; border-color: #f7a727;">Sign up</a>
 {% else %}
-<a href="/exit" class="btn btn-primary"  style="margin-top: 0px; background: #78b8db; position:absolute; right: 70px; border-color: #40c781;">Выход</a>
+<a href="/exit" class="btn btn-primary"  style="margin-top: 0px; background: #78b8db; position:absolute; right: 70px; border-color: #40c781;">Exit</a>
 {% end %}
 
 <div class="container">
-    <h1 style="font-size: 45px; text-align: center; color: #8C047D; font-family: Segoe Print; margin-top: 35px">Актуальное:</h1>
+    <h1 style="font-size: 45px; text-align: center; color: #8C047D; font-family: Segoe Print; margin-top: 35px">Relevant:</h1>
     <hr style="border-color: #FF36E9;" />
     <div class="jumbotron" class="text-center">
-        <h1 style="font-size: 45px; font-family: Segoe Script;">Премьера в России "{{spiderman}}"</h1>
-        <h2>6 июля 2017</h2>
-        <a href="/event?id=1" class="btn btn-primary" style="margin-top: 30px;">Подробнее</a>
+        <h1 style="font-size: 45px; font-family: Segoe Script;">Premiere in Russia "{{spiderman}}"</h1>
+        <h2>July 6, 2017</h2>
+        <a href="/event?id=1" class="btn btn-primary" style="margin-top: 30px;">More</a>
     </div>
     <div class="jumbotron" class="text-center">
-        <h1 style="font-size: 45px; font-family: Segoe Script;">Премьера в России "{{thor}}"</h1>
-        <h2>2 ноября 2017</h2>
-        <a href="/event?id=2" class="btn btn-primary" style="margin-top: 30px">Подробнее</a>
+        <h1 style="font-size: 45px; font-family: Segoe Script;">Premiere in russia "{{thor}}"</h1>
+        <h2>November 2, 2017</h2>
+        <a href="/event?id=2" class="btn btn-primary" style="margin-top: 30px">More</a>
     </div>
     <div class="jumbotron" class="text-center">
-        <h1 style="font-size: 45px; font-family: Segoe Script;">Премьера в России "{{avengers}}"</h1>
-        <h2>3 мая 2018</h2>
-        <a href="/event?id=3" class="btn btn-primary" style="margin-top: 30px;">Подробнее</a>
+        <h1 style="font-size: 45px; font-family: Segoe Script;">Premiere in Russia "{{avengers}}"</h1>
+        <h2>May 3, 2018</h2>
+        <a href="/event?id=3" class="btn btn-primary" style="margin-top: 30px;">More</a>
     </div>
 </div> <!-- /container -->
 </form>
