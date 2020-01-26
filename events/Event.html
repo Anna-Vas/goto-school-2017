@@ -111,14 +111,14 @@
         <h1 style="font-size: 35px; font-family: Segoe Script;">{{event["name"]}}</h1>
         <hr />
         <p style="font-size: 17px">{{event["description"]}}</p>
-        <p style="font-size: 20px; font-family: Monotype Coursiva; color: #0c0c96">Идут:</p>
+        <p style="font-size: 20px; font-family: Monotype Coursiva; color: #0c0c96">Participants:</p>
         <p style="font-size: 17px">{{visitors}}</p>
         {% if not username %}
-        <a href="/login" class="btn btn-primary"  style="margin-top: 30px; background: #40c781; border-color: #40c781;">Войдите, чтобы принять участие</a>
+        <a href="/login" class="btn btn-primary"  style="margin-top: 30px; background: #40c781; border-color: #40c781;">Log in to participate</a>
         {% elif not igo %}
-        <a href="/igo?id={{event['id']}}" class="btn btn-primary"  style="margin-top: 30px;">Я иду</a>
+        <a href="/igo?id={{event['id']}}" class="btn btn-primary"  style="margin-top: 30px;">I participate</a>
         {% else %}
-        <a href="/idontgo?id={{event['id']}}" class="btn btn-primary"  style="margin-top: 30px;">Я передумал(а)</a>
+        <a href="/idontgo?id={{event['id']}}" class="btn btn-primary"  style="margin-top: 30px;">I don't participate</a>
         {% end %}
     </div>
 </div>
