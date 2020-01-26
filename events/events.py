@@ -41,7 +41,7 @@ class RegHandler(tornado.web.RequestHandler):
             users_collection.save({"name": name, "email": email, "password": password})
             self.redirect('/')
         else:
-            self.write("Нельзя завети две учётные записи с одного email.")
+            self.write("This email is already used.")
 
 class LoginHandler(tornado.web.RequestHandler):
     def get(self):
@@ -52,12 +52,12 @@ class LoginHandler(tornado.web.RequestHandler):
         try:
             db_user = dict(users_collection.find_one({'email': email}))
             if password != db_user["password"]:
-                self.write("Введён неверный пароль.")
+                self.write("Wrong password.")
             else:
                 self.set_secure_cookie("login", email)
                 self.redirect("/")
         except Exception as e:
-            self.write("Введён неверный логин.")
+            self.write("Wrong login.")
 
 class ExitHandler(tornado.web.RequestHandler):
     def get(self):
@@ -72,9 +72,9 @@ class EventHandler(tornado.web.RequestHandler):
         igo = self.get_cookie("igo")
 
         if event["visitors"] == []:
-            visitors = "Пока никто не записался"
+            visitors = "Nobody signed up yet."
         else:
-            visitors = str(len(event["visitors"])) + " человек(а)."
+            visitors = str(len(event["visitors"])) + " people."
 
         self.render('event.html', event=event, visitors=visitors, username=username, igo=igo)
 
