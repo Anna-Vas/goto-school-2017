@@ -12,7 +12,7 @@ There are two programs for image processing in this folder. One of them adds red
 
 ## Faces
 
-This folder contains different versions of a program that replaces faces on a picture with matching emojis using [Microsoft Azure](https://azure.microsoft.com/ru-ru/services/cognitive-services/face/) service.
+This folder contains different versions of a program that replaces faces on a picture with matching emojis using [Microsoft Azure](https://azure.microsoft.com/ru-ru/services/cognitive-services/face/) service for emotions recognition.
 
 ### Requirements
 
@@ -21,7 +21,7 @@ This folder contains different versions of a program that replaces faces on a pi
 
 ## Music
 
-This is a sound processing program that makes sound file ten times higher and reverses it.
+This is a sound processing program that makes every sound in a .wav file ten times higher and reverses the track.
 
 ### Requirements
 
