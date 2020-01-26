@@ -1,47 +1,48 @@
 import struct, pyaudio, wave
 
+# Generate filename
 def new_file_name(oldname, filtername):
     list_file_name = oldname.split('.')
     return list_file_name[0] + '_' + filtername + '.' + list_file_name[1]
 
-FORMAT = pyaudio.paInt16  # глубина звука = 16 бит = 2 байта
-CHANNELS = 1  # моно
-RATE = 48000  # частота дискретизации - кол-во фреймов в секунду
-CHUNK = 4000  # кол-во фреймов за один "запрос" к микрофону - тк читаем по кусочкам
-RECORD_SECONDS = 10  # длительность записи
+# define audio format
+FORMAT = pyaudio.paInt16  # sound depth = 16 bits = 2 bytes
+CHANNELS = 1  # mono
+RATE = 48000  # sampling frequency
+CHUNK = 4000  # number of frames per query
+RECORD_SECONDS = 10  # recording duration
 RECORD_LEN = 5
 
 audio = pyaudio.PyAudio()
 
-# открываем поток для чтения данных с устройства записи по умолчанию
-# и задаем параметры
+# Open stream for reading data from micro and set params
 stream = audio.open(format=FORMAT, channels=CHANNELS,
                     rate=RATE, input=True,
                     frames_per_buffer=CHUNK)
 
-# открываем поток для записи на устройство вывода - динамик - с такими же параметрами
+# Open stream for output data with same params
 out_stream = audio.open(format=FORMAT, channels=CHANNELS,
                         rate=RATE, output=True)
 flag = True
 number = 1
 
+# Wait for user to say something and start recording
 while flag:
     print('say anything to start recording')
 
     rec_new = -1
     frames = []
-    
+
     for i in range(RECORD_SECONDS):
-        s = 0  # сумма отсчетов за секунду
+        s = 0  # counts per secong
     
         # для каждого "запроса"
-        for j in range(RATE // CHUNK):  # RATE//CHUNK - количество "запросов" к микрофону в секунду
+        for j in range(RATE // CHUNK):  # queries per secong
     
-            data = stream.read(CHUNK)  # читаем строку из байт длиной CHUNK * FORMAT = 4000*2 байт
-            current_frames = struct.unpack("<" + str(CHUNK) + "h",
-                                           data)  # строка -> список из CHUNK отсчетов, h - это short int
+            data = stream.read(CHUNK)  # reading byte string
+            current_frames = struct.unpack("<" + str(CHUNK) + "h", data)
     
-            # суммируем модули отсчетов - они могут быть отрицптельными
+            # sum counts modules
             if rec_new < 0:
                 for frame in current_frames:
                     s += abs(frame)
@@ -55,11 +56,11 @@ while flag:
                 else:
                     if i < rec_end: 
                         
-                        frames += current_frames  # добавляем прочитанные отсчеты в общий список
+                        frames += current_frames  # add read counts to the list
             else:
                 if rec_new >= 0 and i < rec_end:
                     
-                    frames += current_frames  # добавляем прочитанные отсчеты в общий список
+                    frames += current_frames  # add read counts to the list
      
     if rec_new < 0:
         print("Not recorded")
