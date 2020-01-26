@@ -26,7 +26,6 @@ This is a sound processing program that makes every sound in a .wav file ten tim
 ### Requirements
 
 - wave
-- struct
 
 ## Events
 
@@ -43,8 +42,5 @@ This is a simple telegram bot that can replace faces on image with emojis (using
 
 ### Requirements
 - telebot
-- uuid
 - requests
 - PIL
-- threading
-- time
