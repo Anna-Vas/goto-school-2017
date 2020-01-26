@@ -30,7 +30,7 @@ This is a sound processing program that makes sound file ten times higher and re
 
 ## Events
 
-It was supposed to be a site with some upcoming events (as an example I used three films that were about to have a premiere in Russia at the moment I was creating this site) where people would be able to sign up for these events. It was my first site that used a database (MongoDB). Web application is based on Tornado. Later I created dockerfile for this site.
+It was supposed to be a site with some upcoming events (as an example I used three films that were about to have a premiere in Russia at the moment I was creating this site) where people would be able to sign up for these events. It was my first site that used a database ([MongoDB](https://www.mongodb.com/). Web application is based on [Tornado](https://www.tornadoweb.org/en/stable/). Later I created dockerfile for this site.
 
 ### Requirements
 
