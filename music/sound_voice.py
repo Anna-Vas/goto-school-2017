@@ -1,6 +1,6 @@
 import struct, pyaudio, wave
 
-# Generate filename
+# generate filename
 def new_file_name(oldname, filtername):
     list_file_name = oldname.split('.')
     return list_file_name[0] + '_' + filtername + '.' + list_file_name[1]
@@ -26,7 +26,7 @@ out_stream = audio.open(format=FORMAT, channels=CHANNELS,
 flag = True
 number = 1
 
-# Wait for user to say something and start recording
+# wait for user to say something and start recording
 while flag:
     print('say anything to start recording')
 
