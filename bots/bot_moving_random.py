@@ -24,6 +24,6 @@ def make_choice(x, y, field):
         # If there are no other bots in a direct line, bots moves up or down
         return random.choice(["go_up", "go_down"])
 
-    # It bot has less that 10 hp, it starts randomly moving
+    # If bot has less that 10 hp, it starts randomly moving
     else:
         return random.choice(["go_up", "go_down", "go_left", "go_right"])
