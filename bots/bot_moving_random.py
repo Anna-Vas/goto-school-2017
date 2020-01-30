@@ -21,9 +21,9 @@ def make_choice(x, y, field):
         for i in range(y + 1, y_size):
             if field[x][i] != 0:
                 return "fire_down"
-        # After attack bot starts randomly moving up or down
+        # If there are no other bots in a direct line, bots moves up or down
         return random.choice(["go_up", "go_down"])
 
-    # If there are no other bots left, bot starts randomly moving
+    # It bot has less that 10 hp, it starts randomly moving
     else:
         return random.choice(["go_up", "go_down", "go_left", "go_right"])
