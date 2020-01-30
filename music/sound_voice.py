@@ -36,7 +36,7 @@ while flag:
     for i in range(RECORD_SECONDS):
         s = 0  # counts per secong
     
-        # для каждого "запроса"
+        # for each query
         for j in range(RATE // CHUNK):  # queries per secong
     
             data = stream.read(CHUNK)  # reading byte string
@@ -69,7 +69,7 @@ while flag:
         print("finished recording")
     
             
-        # удаляем каждый 4ый отсчет - увеличиваем частоту на 25%
+        # remove every 4th count to increase speed 
         newframes = []
         for i in range(0, len(frames)):
             if i % 4 != 0:
