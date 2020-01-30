@@ -21,7 +21,7 @@ It's another program for image processing with more functions than the previous 
 
 ## Music
 
-This is a sound processing program that makes every sound in a .wav file ten times higher and reverses the track.
+There are two sound processing programs in this directory. One of them (`sound_music.py`) recieves a sound file and outputs its 25% increased and reversed version. Another one (`sound_voice.py`) records user's voice, increases its speed and adds background music.
 
 ### Requirements
 
