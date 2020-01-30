@@ -31,11 +31,11 @@ There are two sound processing programs in this directory. One of them (`sound_m
 
 There are some specific programs in this directory that were created for a bot fight at GoTo school. They were used inside a particular infrastructure and that's why all programs in this directory contain functions only.
 
-At every step program gets three parameters: `x` and `y` are current coords and `field` is a list of all rows and columns with information about bots at every spot and their health points. If there is no bot at some spot, it's `field[x][y]` will be `0`. Othrewise, it'll be equal to health points amount of this bot.
+At every step program gets three parameters: `x` and `y` are current coords and `field` is a list of all rows and columns with information about bots at every spot and their health points. If there is no bot at some spot, it's `field[x][y]` will be `0`. Othrewise, it will be a dictionary with such fields as `life` and `history`. Value of `life` is equal to bot's health points amount and `history` contains all previous coords of bot.
 
-There are 8 possible actions at each step: `go_up`, `go_down`, `go right`, `go_left` (bot moves one spot in given direction), `fire_up`, `fire_down`, `fire_right` and `fire_left` (bot starts shooting in given directions; if there's another bot in this direction, he starts losing one health point per step). If bot tries to move or shoot to the wall (for example, it's in the up left corner and tries to move or shoot up or right), nothing happens.
+There are 8 possible actions at each step: `go_up`, `go_down`, `go right`, `go_left` (bot moves one spot in given direction), `fire_up`, `fire_down`, `fire_right` and `fire_left` (bot starts shooting in given directions; if there's another bot in this direction, he starts losing one health point per step). If bot tries to move or shoot to the border (for example, it's in the up left corner and tries to move or shoot up or right), nothing happens.
 
-If bot loses all health points, it dies (loses ability to move and shoot). In case of some error in program, bot crashes which is basically similar to death. Bots get score for damaging and killing other bots and lose some score (but not all) in case of death or crash.
+If bot loses all health points, it dies (loses ability to move and shoot). In case of some error in program, bot crashes (it can continue performing at the next step if error doesn't occur again). Bots get score for damaging and killing other bots and lose some score (but not all) in case of death or crash.
 
 ## Events
 
