@@ -69,7 +69,7 @@ while flag:
         print("finished recording")
     
             
-        # remove every 4th count to increase speed 
+        # remove every 4th count to increase speed by 25%
         newframes = []
         for i in range(0, len(frames)):
             if i % 4 != 0:
@@ -77,7 +77,8 @@ while flag:
         n = len(newframes)
         newframes = newframes[::-1]
     
-        musicname = input('Введите название музыкального файла, на который вы хотите наложить свой голос: ')
+        # get name of file with background music
+        musicname = input('music file name: ')
     
     
         music = wave.open(musicname)
@@ -89,9 +90,9 @@ while flag:
         music_voice = []
         for i in range(0, n):
             music_voice.append((newframes[i] + musicframes[i]) // 2)
-        full_wave = struct.pack('<{0}h'.format(n), *music_voice)  # список отсчетов -> строка из байт
+        full_wave = struct.pack('<{0}h'.format(n), *music_voice)  # counts string to byte string
     
-        out_stream.write(full_wave)  # отправляем на динамик
+        out_stream.write(full_wave)  # send to speaker
     
         number += 1
         
@@ -99,15 +100,15 @@ while flag:
     
         full_wave = struct.pack('<{0}h'.format(n), *music_voice)
       
-        # записываем в файл
+        # write to file
         waveFile = wave.open(wave_output_filename, 'wb')
         waveFile.setnchannels(CHANNELS)
         waveFile.setsampwidth(audio.get_sample_size(FORMAT))
         waveFile.setframerate(RATE)
-        waveFile.writeframes(full_wave)  # записываем
+        waveFile.writeframes(full_wave)  # writing
         waveFile.close()
 
-        choice = input('Для записи следующего файла нажмите любую клавишу;\nдля выхода из программы нажите q: ')
+        choice = input('press any key to record new audio;\press q to exit: ')
         if choice == 'q':
             flag = False
     
