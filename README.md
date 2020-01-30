@@ -27,6 +27,16 @@ There are two sound processing programs in this directory. One of them (`sound_m
 
 - wave
 
+## Bots
+
+There are some specific programs in this directory that were created for a bot fight at GoTo school. They were used inside a particular infrastructure and that's why all programs in this directory contain functions only.
+
+At every step program gets three parameters: `x` and `y` are current coords and `field` is a list of all rows and columns with information about bots at every spot and their health points. If there is no bot at some spot, it's `field[x][y]` will be `0`. Othrewise, it'll be equal to health points amount of this bot.
+
+There are 8 possible actions at each step: `go_up`, `go_down`, `go right`, `go_left` (bot moves one spot in given direction), `fire_up`, `fire_down`, `fire_right` and `fire_left` (bot starts shooting in given directions; if there's another bot in this direction, he starts losing one health point per step). If bot tries to move or shoot to the wall (for example, it's in the up left corner and tries to move or shoot up or right), nothing happens.
+
+If bot loses all health points, it dies (loses ability to move and shoot). In case of some error in program, bot crashes which is basically similar to death. Bots get score for damaging and killing other bots and lose some score (but not all) in case of death or crash.
+
 ## Events
 
 It was supposed to be a site with some upcoming events (as an example I used three films that were about to have a premiere in Russia at the moment I was creating this site) where people would be able to sign up for these events. It was my first site that used a database ([MongoDB](https://www.mongodb.com/)). Web application is based on [Tornado](https://www.tornadoweb.org/en/stable/). Later I created dockerfile for this site.
