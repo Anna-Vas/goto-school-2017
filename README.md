@@ -21,7 +21,7 @@ It's another program for image processing with more functions than the previous 
 
 ## Music
 
-There are two sound processing programs in this directory. One of them (`sound_music.py`) recieves a sound file and outputs its 25% increased and reversed version. Another one (`sound_voice.py`) records user's voice, increases its speed by 25% and adds background music.
+There are two sound processing programs in this directory. One of them (`sound_music.py`) recieves a sound file and outputs its high-pitched and reversed version. Another one (`sound_voice.py`) records user's voice, increases its speed by 25% and adds background music.
 
 ### Requirements
 
