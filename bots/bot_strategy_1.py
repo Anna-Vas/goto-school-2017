@@ -6,7 +6,7 @@ def make_choice(x, y, field):
     x_size = len(field)
     y_size = len(field[0])
 
-    # Add all other bots on a straight line from current position to the list
+    # Add all other bots situated in a direct line from current position to the list
     bots = []
 
     # Adding bots to the left from current position
@@ -45,29 +45,30 @@ def make_choice(x, y, field):
                         flag = False
         i += 1
 
-    # If there are four bots on a straight line, bot starts shooting to the one with the least health
+    # If there are four bots in a direct line, bot starts shooting to the one with the least health
     if len(bots) == 4:
         min_health = sorted(bots, key=lambda x: x[1])
         return 'fire_' + min_health[0][0]
 
-    # If there are three bots on a straight line, bot tries to escape
+    # If there are three bots in a direct line, bot tries to escape
     if len(bots) == 3:
         directions = set(['left', 'right', 'up', 'down'])
         bots_directions = set(bots[0][0], bots[1][0], bots[2][0])
         direction_fire = str(directions - bots_directions)
         return 'go_' + direction_fire[2:len(direction_fire)-2]
     
-    # If there are two bots on a straight line, bot moves randomly to a safe direction
+    # If there are two bots in a direct line, bot moves randomly to a safe direction
     if len(bots) == 2:
         two_bots_string = bots[0][0] + bots[1][0]
         if two_bots_string == 'leftright':
             return random.choice(['go_up', 'go_down'])
         if two_bots_string == 'updown':
             return random.choice(['go_left', 'go_right'])
+        # It other bots occupy both vertical and horizontal direction, bot moves to the one with less health
         min_health = sorted(bots, key=lambda x: x[1])
         return 'go_' + min_health[0][0]
 
-    # Two strategies in case there is one bot on a straight line
+    # Two strategies in case there is one bot in a direct line
     if len(bots) == 1:
         # If other bot has less health, bot starts shooting
         if bots[0][1] < field[x][y]["life"]:
@@ -79,6 +80,6 @@ def make_choice(x, y, field):
             else:
                 return random.choice(['go_left', 'go_right'])
 
-    # If there are no bots on a straight line, bot starts randomly moving around the field
+    # If there are no bots in a direct line, bot starts randomly moving around the field
     if len(bots) == 0:
         return random.choice(['go_up', 'go_down', 'go_left', 'go_right'])
